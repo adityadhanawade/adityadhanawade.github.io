@@ -9,7 +9,6 @@ Leverage Report) via a custom domain setting, rather than showing a placeholder 
 ## Other places to find my work
 
 - [GitHub profile](https://github.com/adityadhanawade)
-- [UI/UX Daily Challenge](https://github.com/adityadhanawade/ui-ux-daily-challenge) — a running design-practice log
 - [The Leverage Report](https://theleveragereport.me) — a free AI-money toolkit site I built and shipped (separate project/repo, not hosted here)
 
 ## Status
