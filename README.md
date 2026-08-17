@@ -2,7 +2,9 @@
 
 Personal site for **Aditya Dhanawade** — Full-Stack Web Developer (Next.js/React) and UI/UX Designer, based in Pune.
 
-This repo is reserved for my personal GitHub Pages site. It's currently a placeholder — no site is deployed here yet.
+This repo is reserved for my personal GitHub Pages site. It has no site of its own yet — the
+`adityadhanawade.github.io` domain currently redirects to my shipped project below (The
+Leverage Report) via a custom domain setting, rather than showing a placeholder page.
 
 ## Other places to find my work
 
