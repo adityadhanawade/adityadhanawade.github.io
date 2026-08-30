@@ -1,6 +1,6 @@
 # adityadhanawade.github.io
 
-Personal portfolio site for Aditya Dhanawade, full-stack web developer (Next.js/React) and UI/UX designer, based in Pune.
+Personal site for Aditya Dhanawade, full-stack web developer (Next.js/React) and UI/UX designer, based in Pune.
 
 Live at [adityadhanawade.github.io](https://adityadhanawade.github.io/).
 
