@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Dhanawade — Full-Stack Developer &amp; UI/UX Designer</title>
+<meta name="description" content="Aditya Dhanawade. Full-stack web developer and UI/UX designer based in Pune. Selected work in Next.js, React, and Figma.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%235b8cff'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='52' font-weight='700' fill='%230a1230' text-anchor='middle'%3EAD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fafaf9; --bg-elevated:#ffffff; --bg-sunken:#f2f1ee;
+    --text:#17171a; --text-muted:#63636a;
+    --accent:#3b5fd9; --accent-bg:#3b5fd9; --accent-ink:#ffffff;
+    --border:rgba(0,0,0,0.10); --border-soft:rgba(0,0,0,0.06);
+    --shadow:0 18px 40px -20px rgba(23,23,26,0.25);
+    --radius-card:16px;
+    --font-display:'Space Grotesk',system-ui,-apple-system,Segoe UI,sans-serif;
+    --font-body:'Manrope',system-ui,-apple-system,Segoe UI,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0a0a0b; --bg-elevated:#131316; --bg-sunken:#0f0f11;
+      --text:#f2f2f0; --text-muted:#9a9a9f;
+      --accent:#5b8cff; --accent-bg:#5b8cff; --accent-ink:#0a1230;
+      --border:rgba(255,255,255,0.10); --border-soft:rgba(255,255,255,0.06);
+      --shadow:0 24px 50px -20px rgba(0,0,0,0.55);
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:var(--font-body); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+  /* Nav */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:68px; max-width:1120px; margin:0 auto; padding:0 24px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:600; font-size:15px; text-decoration:none;}
+  .brand .mark{
+    width:30px; height:30px; border-radius:9px; background:var(--accent-bg); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700;
+  }
+  .nav-links{display:flex; align-items:center; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{font-size:14px; font-weight:500; text-decoration:none; color:var(--text-muted); transition:color .2s ease;}
+  .nav-links a:hover{color:var(--text);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; white-space:nowrap;
+    border-radius:999px; font-family:var(--font-body); font-weight:700; font-size:14px;
+    padding:11px 22px; text-decoration:none; border:1px solid transparent; cursor:pointer;
+    transition:transform .18s cubic-bezier(.16,1,.3,1), box-shadow .18s ease, background .2s ease;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{background:var(--accent-bg); color:var(--accent-ink);}
+  .btn-primary:hover{box-shadow:0 8px 24px -8px var(--accent-bg);}
+  .btn-ghost{background:transparent; color:var(--text); border-color:var(--border);}
+  .btn-ghost:hover{background:var(--bg-sunken);}
+  .nav-cta{display:flex; align-items:center;}
+
+  /* Hero */
+  .hero{padding:88px 0 72px;}
+  .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center;}
+  .hero h1{
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(34px,5vw,54px); line-height:1.08; letter-spacing:-0.02em;
+    margin:0 0 20px;
+  }
+  .hero p.lead{font-size:18px; color:var(--text-muted); max-width:46ch; margin:0 0 28px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-visual{
+    position:relative; aspect-ratio:1/1; border-radius:24px;
+    background:linear-gradient(155deg, var(--bg-elevated), var(--bg-sunken));
+    border:1px solid var(--border-soft); overflow:hidden;
+  }
+  .hero-visual .grid-lines{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--border-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-soft) 1px, transparent 1px);
+    background-size:36px 36px;
+    mask-image:radial-gradient(circle at 60% 40%, black, transparent 75%);
+  }
+  .hero-visual .orb{
+    position:absolute; width:56%; aspect-ratio:1/1; border-radius:50%;
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    background:radial-gradient(circle at 35% 30%, var(--accent) 0%, transparent 70%);
+    opacity:.5; filter:blur(6px);
+  }
+  .hero-visual .tag{
+    position:absolute; bottom:20px; left:20px; right:20px;
+    background:color-mix(in srgb, var(--bg-elevated) 82%, transparent);
+    border:1px solid var(--border-soft); border-radius:12px; padding:14px 16px;
+    font-family:var(--font-display); font-size:13px; font-weight:600;
+    backdrop-filter:blur(6px);
+  }
+  .hero-visual .tag span{display:block; font-family:var(--font-body); font-weight:500; color:var(--text-muted); font-size:12px; margin-top:2px;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{max-width:360px; margin:0 auto;}
+  }
+
+  /* Sections */
+  section{padding:64px 0;}
+  .section-head{margin-bottom:36px;}
+  .section-head h2{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(26px,3.4vw,34px);
+    margin:0 0 10px; letter-spacing:-0.01em;
+  }
+  .section-head p{color:var(--text-muted); margin:0; max-width:56ch; font-size:16px;}
+
+  /* Work grid (bento-ish) */
+  .work-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  }
+  .card{
+    background:var(--bg-elevated); border:1px solid var(--border-soft); border-radius:var(--radius-card);
+    overflow:hidden; display:flex; flex-direction:column;
+    opacity:0; transform:translateY(22px);
+    transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1), box-shadow .25s ease, border-color .25s ease;
+  }
+  .card.in-view{opacity:1; transform:translateY(0);}
+  .card:hover{box-shadow:var(--shadow); border-color:var(--border);}
+  .card-feature{grid-column:span 2; grid-row:span 2; flex-direction:row;}
+  .card-feature .card-media{flex:1.15;}
+  .card-feature .card-body{flex:1;}
+  .card-media{aspect-ratio:16/10; background:var(--bg-sunken); position:relative;}
+  .card-media img{width:100%; height:100%; object-fit:cover; object-position:top;}
+  .card-media.no-image{
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(155deg, color-mix(in srgb, var(--accent) 18%, var(--bg-sunken)), var(--bg-sunken));
+  }
+  .card-media.no-image svg{width:56px; height:56px; color:var(--accent); opacity:.85;}
+  .card-body{padding:22px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .card h3{font-family:var(--font-display); font-size:19px; font-weight:600; margin:0;}
+  .card p{font-size:14.5px; color:var(--text-muted); margin:0; line-height:1.6;}
+  .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:8px;}
+  .pill{
+    font-size:12px; font-weight:600; padding:5px 11px; border-radius:999px;
+    background:var(--bg-sunken); color:var(--text-muted); border:1px solid var(--border-soft);
+  }
+  .card-link{
+    display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700;
+    color:var(--accent); text-decoration:none; margin-top:4px;
+  }
+  .card-link svg{width:14px; height:14px; transition:transform .2s ease;}
+  .card-link:hover svg{transform:translate(2px,-2px);}
+
+  @media (max-width:860px){
+    .work-grid{grid-template-columns:1fr;}
+    .card-feature{grid-column:span 1; grid-row:span 1; flex-direction:column;}
+  }
+
+  /* About */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .about-grid p{font-size:16.5px; color:var(--text-muted); margin:0 0 16px;}
+  .stack-pills{display:flex; flex-wrap:wrap; gap:10px;}
+  .stack-pills .pill{background:var(--bg-elevated); border:1px solid var(--border-soft); color:var(--text); font-size:13px; padding:7px 14px;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* Contact / footer */
+  footer{
+    border-top:1px solid var(--border-soft); padding:56px 0 40px;
+    background:var(--bg-sunken);
+  }
+  .contact-top{display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:24px; margin-bottom:40px;}
+  .contact-top h2{font-family:var(--font-display); font-weight:600; font-size:clamp(26px,3.6vw,36px); margin:0 0 8px; letter-spacing:-0.01em;}
+  .contact-top p{color:var(--text-muted); margin:0; font-size:15.5px;}
+  .foot-links{display:flex; gap:26px; flex-wrap:wrap; list-style:none; padding:0; margin:0 0 28px;}
+  .foot-links a{font-size:14.5px; font-weight:600; text-decoration:none; color:var(--text-muted); transition:color .2s ease;}
+  .foot-links a:hover{color:var(--accent);}
+  .foot-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; padding-top:24px; border-top:1px solid var(--border-soft); font-size:13px; color:var(--text-muted);}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .reveal{transition:none !important; opacity:1 !important; transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a class="brand" href="#top">
+      <span class="mark">AD</span>
+      Aditya Dhanawade
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Full-stack developer,<br>UI/UX designer.</h1>
+        <p class="lead">I take products from research and Figma to shipped, responsive code. Based in Pune, currently open to new roles.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">View work</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/aditya-dhanawade-07004a317/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="grid-lines"></div>
+        <div class="orb"></div>
+        <div class="tag">The Leverage Report
+          <span>Live production build</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Selected work</h2>
+        <p>Four projects spanning full-stack development, UI/UX research, and Android engineering.</p>
+      </div>
+
+      <div class="work-grid">
+
+        <article class="card card-feature">
+          <div class="card-media">
+            <img src="https://raw.githubusercontent.com/adityadhanawade/leverage-report-website/master/assets/screenshots/mockup-home-desktop.png" alt="The Leverage Report homepage, desktop mockup" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>The Leverage Report</h3>
+            <p>A free AI-money toolkit. Live, deployed Next.js app built solo end to end, from UX research to production.</p>
+            <div class="pills">
+              <span class="pill">Next.js</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">Figma</span>
+            </div>
+            <a class="card-link" href="https://theleveragereport.me" target="_blank" rel="noopener">
+              Visit site
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <img src="https://raw.githubusercontent.com/adityadhanawade/the-caregiver-is-invisible/main/screenshots/01-Home.png" alt="The Caregiver Is Invisible, home screen" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>The Caregiver Is Invisible</h3>
+            <p>A UI/UX case study for the Zuntra Design Awards 2026, with real interviews and two rounds of usability testing.</p>
+            <div class="pills">
+              <span class="pill">Figma</span>
+              <span class="pill">Research</span>
+            </div>
+            <a class="card-link" href="https://github.com/adityadhanawade/the-caregiver-is-invisible" target="_blank" rel="noopener">
+              Read case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <img src="https://raw.githubusercontent.com/adityadhanawade/uiux-internship-thiranex/main/Module%202/files/Module2_Mockups_PNG/01_after_homepage_desktop.png" alt="JSPM library redesign, homepage mockup" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>UI/UX Internship, Thiranex</h3>
+            <p>Wireframes, a heuristic redesign, and moderated usability testing across four internship modules.</p>
+            <div class="pills">
+              <span class="pill">Wireframes</span>
+              <span class="pill">Usability Testing</span>
+            </div>
+            <a class="card-link" href="https://github.com/adityadhanawade/uiux-internship-thiranex" target="_blank" rel="noopener">
+              View deliverables
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media no-image">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17h14M5 17a2 2 0 104 0M5 17V9l2-4h10l2 4v8M15 17a2 2 0 104 0M5 9h14"/></svg>
+          </div>
+          <div class="card-body">
+            <h3>Vehicle Automation App</h3>
+            <p>An Android app connecting vehicle owners with garages. Built with three classmates using Kotlin and Firebase.</p>
+            <div class="pills">
+              <span class="pill">Kotlin</span>
+              <span class="pill">Firebase</span>
+            </div>
+            <a class="card-link" href="https://github.com/adityadhanawade/vehicle-automation-app" target="_blank" rel="noopener">
+              View repository
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <div class="section-head" style="margin-bottom:0;">
+          <h2>About</h2>
+        </div>
+      </div>
+      <div class="reveal">
+        <p>I'm a third-year B.Tech CSE student in Pune, working across full-stack web development and UI/UX design. I like taking a product through the whole process: research, design, and code.</p>
+        <div class="stack-pills">
+          <span class="pill">Next.js</span>
+          <span class="pill">React</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">Tailwind CSS</span>
+          <span class="pill">Figma</span>
+          <span class="pill">Kotlin</span>
+          <span class="pill">Java</span>
+          <span class="pill">Android</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-top reveal">
+      <div>
+        <h2>Let's talk</h2>
+        <p>Open to full-stack and UI/UX roles, internships, and freelance work.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:avdhanawade94@gmail.com">Email me</a>
+    </div>
+    <ul class="foot-links">
+      <li><a href="mailto:avdhanawade94@gmail.com">avdhanawade94@gmail.com</a></li>
+      <li><a href="https://www.linkedin.com/in/aditya-dhanawade-07004a317/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/adityadhanawade" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <div class="foot-bottom">
+      <span>© 2026 Aditya Dhanawade</span>
+      <span>Pune, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('.card, .reveal');
+    if(prefersReduced || !('IntersectionObserver' in window)){
+      targets.forEach(function(el){ el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
