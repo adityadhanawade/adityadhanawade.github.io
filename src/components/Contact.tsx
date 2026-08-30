@@ -3,7 +3,7 @@ import MagneticButton from './MagneticButton'
 
 export default function Contact() {
   return (
-    <footer id="contact" className="border-t border-ink-line bg-ink-raised">
+    <footer id="contact" className="border-t border-ink-line bg-ink/60 backdrop-blur-md">
       <div className="mx-auto max-w-[1160px] px-6 py-24 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
