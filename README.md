@@ -1,16 +1,13 @@
 # adityadhanawade.github.io
 
-Personal site for **Aditya Dhanawade** — Full-Stack Web Developer (Next.js/React) and UI/UX Designer, based in Pune.
+Personal portfolio site for Aditya Dhanawade, full-stack web developer (Next.js/React) and UI/UX designer, based in Pune.
 
-This repo is reserved for my personal GitHub Pages site. It has no site of its own yet — the
-`adityadhanawade.github.io` domain currently redirects to my shipped project below (The
-Leverage Report) via a custom domain setting, rather than showing a placeholder page.
+Live at [adityadhanawade.github.io](https://adityadhanawade.github.io/): a single-page landing site with selected work, an about section, and contact links. Built with plain HTML/CSS, no framework, deployed via GitHub Pages from the main branch.
 
 ## Other places to find my work
 
-- [GitHub profile](https://github.com/adityadhanawade)
-- [The Leverage Report](https://theleveragereport.me) — a free AI-money toolkit site I built and shipped (separate project/repo, not hosted here)
+[GitHub profile](https://github.com/adityadhanawade)
 
-## Status
+[The Leverage Report](https://theleveragereport.me), a free AI-money toolkit site (separate project/repo, not hosted here)
 
-🚧 Work in progress — content coming as the portfolio site is built out.
+[LinkedIn](https://www.linkedin.com/in/aditya-dhanawade-07004a317/)
